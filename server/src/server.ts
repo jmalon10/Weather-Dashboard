@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
-import express, { type Request, type Response } from 'express';
-import path from 'node:path';
+import express from 'express';
 dotenv.config();
 
 // Import the routes

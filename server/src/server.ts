@@ -20,3 +20,5 @@ app.use(routes);
 
 // Start the server on the port
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+// https://api.openweathermap.orggeocode?city=New york&apikey=dc1f7e8edc5b5302fc9962314c4ed76d
+// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=dc1f7e8edc5b5302fc9962314c4ed76d

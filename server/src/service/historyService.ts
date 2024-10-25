@@ -25,19 +25,41 @@ class HistoryService {
   }
   // Define a getCities method that reads the cities from the searchHistory.json file and returns them as an array of City objects
   async getCities() {
-    return await this.read().then((cities) => {
-      let parsedCities: City[];
-
-      // If cities isn't an array or can't be turned into one, send back a new empty array
-      try {
+    try {
+      const cities = await this.read();
+      
+      // If cities is not an array or can't be parsed, return an empty array
+      if (!cities) return [];
+  
+      // Attempt to parse cities
+      let parsedCities = Array.isArray(cities) ? cities : [];
+  
+      // If cities is a JSON string, parse it
+      if (typeof cities === 'string') {
         parsedCities = [].concat(JSON.parse(cities));
-      } catch (err) {
-        parsedCities = [];
       }
-
+  
       return parsedCities;
-    });
+    } catch (err) {
+      console.error('Error reading cities:', err);
+      return []; // Return an empty array on error
+    }
   }
+  
+  // async getCities() {
+  //   return await this.read().then((cities) => {
+  //     let parsedCities: City[];
+
+  //     // If cities isn't an array or can't be turned into one, send back a new empty array
+  //     try {
+  //       parsedCities = [].concat(JSON.parse(cities));
+  //     } catch (err) {
+  //       parsedCities = [];
+  //     }
+
+  //     return parsedCities;
+  //   });
+  // }
   // Define an addCity method that adds a city to the searchHistory.json file
   // async addCity(city: string) {}
   async addCity(city: string) {

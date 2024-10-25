@@ -13,12 +13,13 @@ router.post('/', async (req, res) => {
   }
 
   try {
+    console.log(`BEFORE WEATHER DATA`)
     // GET weather data from city name
     const weatherData = await WeatherService.getWeatherForCity(city);
-
+    console.log(`LOOK HERE:` , weatherData)
     // Save city to search history
     await HistoryService.addCity(city);
-
+    console.log(`AFTER ADD CITY`)
     return res.status(200).json(weatherData);
   } catch (error) {
     console.error('Error fetching weather data:', error);

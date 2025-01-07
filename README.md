@@ -23,7 +23,7 @@ Use this express application to display the weather forecast for the city you ty
 ## License
 MIT License
 ## How to Contribute
-Clone the repository and send me a pull request! Contact me via emaial to brainstorm!
+Clone the repository and send me a pull request! Contact me via email to brainstorm!
 
 ## Questions
 Please contact me via email for any further questions [here](mailto:jmaloney11277@gmail.com) or find me on GitHub [here!](https://github.com/jmalon10)
